@@ -5,15 +5,23 @@
     <meta charset="utf-8" />
     <title>Notes</title>
 
+    <script src="./js/note-model.js"></script>
+
+    <script src="./js/note-list-model.js"></script>
+    <script src="./js/note-list-view.js"></script>
+
     <script src="./js/note-controller.js"></script>
   </head>
+
   <body>
     <div id="app">
       hello
     </div>
 
     <script>
-      changeText()
+      var noteList = new NoteList ();
+      var controller = new NoteController (noteList)
+      controller.changeView();
     </script>
   </body>
 </html>

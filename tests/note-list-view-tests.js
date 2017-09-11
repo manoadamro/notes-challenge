@@ -9,7 +9,9 @@
     list.addNote(text);
     list.addNote(text2);
 
-    if (list.getNotesView() !== "<li>" + text + "</li><li>" + text2 + "</li>") {
+    var view = new NoteListView (list)
+
+    if (view.getNotesView() !== "<li>" + text + "</li><li>" + text2 + "</li>") {
       throw new Error("testThatNoteViewWorks: View is not working");
     } else {
       console.log("testThatNoteViewWorks:  Passes");

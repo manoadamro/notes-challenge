@@ -1,12 +1,17 @@
-document.addEventListener("DOMContentLoaded", function(event) {
 
+(function(exports){
 
+  var NoteController = function (noteList) {
 
-  function changeText() {
-    // document.body.innerHTML = "howdy"
-    console.log(document.getElementById('app'))
-    document.getElementById('app').innerHTML = "howdy";
-  });
+    this.noteList = noteList;
+    this.noteList.addNote("Favourite drink: seltzer");
+    this.view = new NoteListView(this.noteList);
+  };
 
+  NoteController.prototype.changeView = function (doc = document) {
+    doc.getElementById('app').innerHTML = this.view.getNotesView();
+  };
 
-});
+  exports.NoteController = NoteController;
+
+})(this);
