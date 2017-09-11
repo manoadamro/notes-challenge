@@ -7,7 +7,7 @@ var DocumentDouble = function() {
   this.tag = new Tag ()
 };
 
-DocumentDouble.prototype.getElementById = function (id) {
+DocumentDouble.prototype.getElementById = function (_id) {
   return this.tag;
 };
 
