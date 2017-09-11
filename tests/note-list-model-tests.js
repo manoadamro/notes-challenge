@@ -8,7 +8,7 @@
     list.addNote(text);
 
     if (list.getNotes().length !== 1) {
-      throw new Error("New note was not added to array");
+      throw new Error("testThatNoteIsCreated: New note was not added to array");
     } else {
       console.log("testThatNoteIsCreated:  Passes");
       document.write("testThatNoteIsCreated:  Passes<br>");
