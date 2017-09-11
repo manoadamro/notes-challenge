@@ -11,6 +11,7 @@
       throw new Error("New note was not added to array");
     } else {
       console.log("testThatNoteIsCreated:  Passes");
+      document.write("testThatNoteIsCreated:  Passes<br>");
     }
   };
 
