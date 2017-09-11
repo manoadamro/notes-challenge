@@ -4,11 +4,14 @@ var Tag = function() {
 };
 
 var DocumentDouble = function() {
-  this.tag = new Tag ()
+  this.tags = {}
 };
 
-DocumentDouble.prototype.getElementById = function (_id) {
-  return this.tag;
+DocumentDouble.prototype.getElementById = function (id) {
+  if (!(id in this.tags)) {
+    this.tags[id] = new Tag ();
+  }
+  return this.tags[id];
 };
 
 
@@ -22,7 +25,7 @@ DocumentDouble.prototype.getElementById = function (_id) {
     var doc = new DocumentDouble();
     controller.changeView(doc)
 
-    if (doc.tag.innerHTML !== "<li>Favourite drink: seltzer</li>") {
+    if (doc.tags['app'].innerHTML !== "<li>Favourite drink: seltzer</li>") {
       throw new Error("testNoteControllerChangesInnerHTML: something fucked up");
     } else {
       console.log("testNoteControllerChangesInnerHTML:  Passes");
