@@ -4,7 +4,7 @@
     var note = new Note(text);
 
     pass = note.getText() === text
-    formatOutput('testNoteControllerChangesInnerHTML', pass)
+    formatOutput('testThatItReturnsTheNoteMessage', pass)
   };
 
   testThatItReturnsTheNoteMessage();
