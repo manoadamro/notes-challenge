@@ -4,10 +4,9 @@
     var note = new Note(text);
 
     if (note.getText() !== text) {
-      throw new Error("testThatItReturnsTheNoteMessage: Text does not match");
+      formatOutput('testNoteControllerChangesInnerHTML', false)
     } else {
-      console.log("testThatItReturnsTheNoteMessage:  Passes");
-      document.write("testThatItReturnsTheNoteMessage:  Passes<br>");
+      formatOutput('testNoteControllerChangesInnerHTML', true)
     }
   };
 

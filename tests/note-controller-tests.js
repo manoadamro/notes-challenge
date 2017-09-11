@@ -9,10 +9,9 @@
     controller.changeView(doc)
 
     if (doc.tags['app'].innerHTML !== "<li>Favourite drink: seltzer</li>") {
-      throw new Error("testNoteControllerChangesInnerHTML: something fucked up");
+      formatOutput('testNoteControllerChangesInnerHTML', false)
     } else {
-      console.log("testNoteControllerChangesInnerHTML:  Passes");
-      document.write("testNoteControllerChangesInnerHTML:  Passes<br>");
+      formatOutput('testNoteControllerChangesInnerHTML', true)
     }
   };
 

@@ -12,11 +12,9 @@
     var view = new NoteListView (list)
 
     if (view.getNotesView() !== "<li>" + text + "</li><li>" + text2 + "</li>") {
-      throw new Error("testThatNoteViewWorks: View is not working");
+      formatOutput('testThatNoteViewWorks', false)
     } else {
-      console.log("testThatNoteViewWorks:  Passes");
-      document.write("testThatNoteViewWorks:  Passes<br>");
-
+      formatOutput('testThatNoteViewWorks', true)
     }
   };
 
