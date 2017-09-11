@@ -3,11 +3,8 @@
     var text = "Hello Adam!"
     var note = new Note(text);
 
-    if (note.getText() !== text) {
-      formatOutput('testNoteControllerChangesInnerHTML', false)
-    } else {
-      formatOutput('testNoteControllerChangesInnerHTML', true)
-    }
+    pass = note.getText() === text
+    formatOutput('testNoteControllerChangesInnerHTML', pass)
   };
 
   testThatItReturnsTheNoteMessage();

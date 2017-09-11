@@ -11,11 +11,8 @@
 
     var view = new NoteListView (list)
 
-    if (view.getNotesView() !== "<li>" + text + "</li><li>" + text2 + "</li>") {
-      formatOutput('testThatNoteViewWorks', false)
-    } else {
-      formatOutput('testThatNoteViewWorks', true)
-    }
+    pass = view.getNotesView() === "<li>" + text + "</li><li>" + text2 + "</li>"
+    formatOutput('testThatNoteViewWorks', pass)
   };
 
   testThatNoteViewWorks();

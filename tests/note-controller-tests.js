@@ -8,11 +8,8 @@
     var doc = new DocumentDouble();
     controller.changeView(doc)
 
-    if (doc.tags['app'].innerHTML !== "<li>Favourite drink: seltzer</li>") {
-      formatOutput('testNoteControllerChangesInnerHTML', false)
-    } else {
-      formatOutput('testNoteControllerChangesInnerHTML', true)
-    }
+    pass = doc.tags['app'].innerHTML === "<li>Favourite drink: seltzer</li>"
+    formatOutput('testNoteControllerChangesInnerHTML', pass)
   };
 
   testNoteController();

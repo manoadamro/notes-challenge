@@ -7,11 +7,8 @@
     var list = new NoteList();
     list.addNote(text);
 
-    if (list.getNotes().length !== 1) {
-      formatOutput('testThatNoteIsCreated', false)
-    } else {
-      formatOutput('testThatNoteIsCreated', true)
-    }
+    pass = list.getNotes().length === 1
+    formatOutput('testThatNoteIsCreated', pass)
   };
 
   testThatNoteIsCreated();
