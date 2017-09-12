@@ -2,26 +2,6 @@
 // module for 'NoteController'
 (function(exports){
 
-  // constructor
-  var NoteController = function (noteList) {
-    this.noteList = noteList;
-    this.view = new NoteListView(this.noteList);
-  };
-
-  // allows innerHTML of 'app' element to be changed
-  NoteController.prototype.changeView = function (doc = document) {
-    doc.getElementById('app').innerHTML = this.view.getNotesView();
-  };
-
-  // shows a single note
-  NoteController.prototype.showNote = function (noteId, doc = document) {
-    var note = new SingleNoteView(this.noteList.notes[noteId]);
-
-    doc
-    .getElementById("app")
-    .innerHTML = note.createView();
-  };
-
   function makeUrlChangeShowNote (controller) {
     window.addEventListener("hashchange", function(clickEvent){
       clickEvent.preventDefault();
@@ -42,11 +22,40 @@
   }
 
   function submitNewNote(controller) {
-    console.log(document.getElementById('new-note-text').value);
+    var content = document.getElementById('new-note-text').value;
+    controller.noteList.addNote(content);
+    controller.setView();
   }
 
-  exports.NoteController = NoteController;
-  exports.makeUrlChangeShowNote = makeUrlChangeShowNote;
-  exports.listenForSubmit = listenForSubmit;
+  // constructor
+  var NoteController = function (noteList = new NoteList ()) {
+    this.noteList = noteList;
+    makeUrlChangeShowNote(this);
+    listenForSubmit(this)
+    this.setView();
+  };
 
+  // allows innerHTML of 'app' element to be changed
+  NoteController.prototype.setView = function (doc = document) {
+    view = new NoteListView(this.noteList).getNotesView();
+    doc.getElementById('app').innerHTML = view
+  };
+
+  // shows a single note
+  NoteController.prototype.showNote = function (noteId, doc = document) {
+    var note = new SingleNoteView(this.noteList.notes[noteId]);
+
+    doc
+    .getElementById("app")
+    .innerHTML = note.createView();
+  };
+
+  // event for resetting view to list view
+  NoteController.prototype.resetView = function(clickEvent) {
+    clickEvent.preventDefault();
+    controller.setView();
+  };
+
+  // makes NoteController global
+  exports.NoteController = NoteController;
 })(this);

@@ -17,24 +17,18 @@
       <br />
       <input type="submit" id="submit" value="Submit" />
     </form>
-
-    <div id="app">
-      hello
-    </div>
     <br />
-    <a href="" onclick="controller.changeView()">Home</a>
+
+    <div id="app"></div>
+    <br />
+
+    <a href="" onclick="controller.resetView(event);">
+      Home
+    </a>
 
     <script>
-
-      var noteList = new NoteList ();
-      noteList.addNote("suh ma'dude")
-      noteList.addNote("nuh ma'dude")
-      noteList.addNote("yuh ma'dude")
-
-      var controller = new NoteController (noteList)
-      controller.changeView();
-      makeUrlChangeShowNote(controller);
-      listenForSubmit(controller)
+      var controller = new NoteController ()
     </script>
+
   </body>
 </html>
