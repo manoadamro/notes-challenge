@@ -1,11 +1,12 @@
 (function(exports) {
+  
   function testThatSingleNoteViewReturnsHTML() {
-    var text = "Hello Adam!";
+    var text = "abcdefghijklmnopqrstuvwxyz";
     var note = new Note(text);
     var singleNoteView = new SingleNoteView(note);
 
     pass = singleNoteView.createView() === '<div>' + text + '</div>'
-    formatOutput('SingleNoteView returns HTML', pass)
+    formatOutput('SingleNoteView returns correct HTML', pass)
   };
 
   testThatSingleNoteViewReturnsHTML();
