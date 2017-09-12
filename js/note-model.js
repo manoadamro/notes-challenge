@@ -3,9 +3,13 @@
 // module for 'Note'
 (function(exports) {
 
+  var noteCount = 0;
+
   // constructor
   var Note = function (text) {
     this.text = text;
+    this.id = noteCount;
+    noteCount += 1
   };
 
   // returns text property

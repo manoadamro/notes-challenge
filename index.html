@@ -4,24 +4,37 @@
   <head>
     <meta charset="utf-8" />
     <title>Notes</title>
-
     <script src="./js/note-model.js"></script>
-
     <script src="./js/note-list-model.js"></script>
     <script src="./js/note-list-view.js"></script>
-
+    <script src="./js/single-note-view.js"></script>
     <script src="./js/note-controller.js"></script>
   </head>
 
   <body>
+    <form id="text" action="#new-note" method="POST">
+      <input type="textarea" id="new-note-text" />
+      <br />
+      <input type="submit" id="submit" value="Submit" />
+    </form>
+
     <div id="app">
       hello
     </div>
+    <br />
+    <a href="" onclick="controller.changeView()">Home</a>
 
     <script>
+
       var noteList = new NoteList ();
+      noteList.addNote("suh ma'dude")
+      noteList.addNote("nuh ma'dude")
+      noteList.addNote("yuh ma'dude")
+
       var controller = new NoteController (noteList)
       controller.changeView();
+      makeUrlChangeShowNote(controller);
+      listenForSubmit(controller)
     </script>
   </body>
 </html>

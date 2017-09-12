@@ -1,16 +1,32 @@
 
 (function(exports) {
-  function testNoteController() {
+  function testNoteControllerShowsNoteList() {
 
     var list = new NoteList();
+    list.addNote("Favourite drink: seltzer");
     var controller = new NoteController(list);
 
     var doc = new DocumentDouble();
     controller.changeView(doc)
 
-    pass = doc.tags['app'].innerHTML === "<li>Favourite drink: seltzer</li>"
-    formatOutput('NoteController changes inner HTML', pass)
+    pass = doc.tags['app'].innerHTML === '<a href="#notes/0"><li>Favourite drink: sel</li></a>'
+    formatOutput('NoteController shows note list', pass)
   };
 
-  testNoteController();
+  function testNoteControllerShowsSingleNote() {
+    var list = new NoteList();
+    list.addNote("Favourite drink: seltzer");
+    list.addNote("Favourite drink: bleach");
+    list.addNote("Favourite drink: chlorophyll");
+    var controller = new NoteController(list);
+
+    var doc = new DocumentDouble();
+    controller.showNote(1, doc)
+
+    pass = doc.tags['app'].innerHTML === "<div>Favourite drink: bleach</div>"
+    formatOutput('NoteController shows single note', pass)
+  }
+
+  testNoteControllerShowsNoteList();
+  testNoteControllerShowsSingleNote();
 })(this);

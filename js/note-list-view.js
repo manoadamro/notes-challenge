@@ -11,7 +11,9 @@
   NoteListView.prototype.getNotesView = function () {
     string = ""
     for (var i = 0; i < this.noteList.notes.length; i++) {
-      string += "<li>" + this.noteList.notes[i].getText() + "</li>"
+      text = this.noteList.notes[i].getText()
+      if(text.length > 20) text = text.substring(0,20);
+      string += '<a href="#notes/' + i + '"><li>' + text + '</li></a>'
     }
     return string;
   }

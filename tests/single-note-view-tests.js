@@ -4,7 +4,7 @@
     var note = new Note(text);
     var singleNoteView = new SingleNoteView(note);
 
-    pass = singleNoteView.createView() === '<div>Hello Adam!</div>'
+    pass = singleNoteView.createView() === '<div>' + text + '</div>'
     formatOutput('SingleNoteView returns HTML', pass)
   };
 
