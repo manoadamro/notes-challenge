@@ -2,31 +2,6 @@
 // module for 'NoteController'
 (function(exports){
 
-  function makeUrlChangeShowNote (controller) {
-    window.addEventListener("hashchange", function(clickEvent){
-      clickEvent.preventDefault();
-      showNoteForCurrentPage(controller)
-    });
-  };
-
-  function showNoteForCurrentPage (controller) {
-    var noteId = window.location.hash.split("/")[1];
-    controller.showNote(noteId);
-  };
-
-  function listenForSubmit(controller) {
-    window.addEventListener("submit", function(submitEvent){
-      submitEvent.preventDefault();
-      submitNewNote(controller);
-    });
-  }
-
-  function submitNewNote(controller) {
-    var content = document.getElementById('new-note-text').value;
-    controller.noteList.addNote(content);
-    controller.setView();
-  }
-
   // constructor
   var NoteController = function (noteList = new NoteList ()) {
     this.noteList = noteList;
