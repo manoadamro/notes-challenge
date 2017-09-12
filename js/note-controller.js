@@ -32,22 +32,18 @@
     this.noteList = noteList;
     makeUrlChangeShowNote(this);
     listenForSubmit(this)
-    this.setView();
   };
 
   // allows innerHTML of 'app' element to be changed
-  NoteController.prototype.setView = function (doc = document) {
-    view = new NoteListView(this.noteList).getNotesView();
-    doc.getElementById('app').innerHTML = view
+  NoteController.prototype.setView = function (docObj=document) {
+    var view = new NoteListView(this.noteList).getNotesView();
+    docObj.getElementById('app').innerHTML = view
   };
 
   // shows a single note
-  NoteController.prototype.showNote = function (noteId, doc = document) {
+  NoteController.prototype.showNote = function (noteId, docObj=document) {
     var note = new SingleNoteView(this.noteList.notes[noteId]);
-
-    doc
-    .getElementById("app")
-    .innerHTML = note.createView();
+    docObj.getElementById('app').innerHTML = note.createView();
   };
 
   // event for resetting view to list view
@@ -58,4 +54,5 @@
 
   // makes NoteController global
   exports.NoteController = NoteController;
+
 })(this);

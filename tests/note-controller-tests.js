@@ -7,9 +7,9 @@
     var controller = new NoteController(list);
 
     var doc = new DocumentDouble();
-    controller.changeView(doc)
+    controller.setView(doc)
 
-    pass = doc.tags['app'].innerHTML === '<a href="#notes/0"><li>Favourite drink: sel</li></a>'
+    var pass = doc.tags['app'].innerHTML === '<a href="#notes/0"><li>Favourite drink: sel</li></a>'
     formatOutput('NoteController shows note list', pass)
   };
 
@@ -23,9 +23,14 @@
     var doc = new DocumentDouble();
     controller.showNote(1, doc)
 
-    pass = doc.tags['app'].innerHTML === "<div>Favourite drink: bleach</div>"
+    var pass = doc.tags['app'].innerHTML === "<div>Favourite drink: bleach</div>"
     formatOutput('NoteController shows single note', pass)
   }
+
+  // var doc = new DocumentDouble();
+  // console.log(doc);
+  // doc.getElementById('test').innerHTML = "hello";
+  // console.log(doc.tags['test'].innerHTML);
 
   testNoteControllerShowsNoteList();
   testNoteControllerShowsSingleNote();

@@ -22,12 +22,13 @@
     <div id="app"></div>
     <br />
 
-    <a href="" onclick="controller.resetView(event);">
+    <button id="home" onclick="controller.resetView(event);">
       Home
-    </a>
+    </button>
 
     <script>
       var controller = new NoteController ()
+      controller.setView();
     </script>
 
   </body>
