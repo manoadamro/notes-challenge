@@ -4,7 +4,7 @@
     var note = new Note(text);
 
     pass = note.getText() === text
-    formatOutput('testThatItReturnsTheNoteMessage', pass)
+    formatOutput('Note returns message', pass)
   };
 
   testThatItReturnsTheNoteMessage();

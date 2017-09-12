@@ -1,6 +1,6 @@
 
 
-// module for 'Note'
+// module for 'NoteListModel'
 (function(exports) {
 
   // constructor, takes class type of note
@@ -14,6 +14,7 @@
     this.notes.push(newNote);
   };
 
+  // returns the note array
   NoteList.prototype.getNotes = function () {
     return this.notes;
   }

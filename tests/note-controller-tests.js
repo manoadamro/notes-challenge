@@ -9,7 +9,7 @@
     controller.changeView(doc)
 
     pass = doc.tags['app'].innerHTML === "<li>Favourite drink: seltzer</li>"
-    formatOutput('testNoteControllerChangesInnerHTML', pass)
+    formatOutput('NoteController changes inner HTML', pass)
   };
 
   testNoteController();

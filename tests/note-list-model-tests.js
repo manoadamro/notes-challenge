@@ -8,7 +8,7 @@
     list.addNote(text);
 
     pass = list.getNotes().length === 1
-    formatOutput('testThatNoteIsCreated', pass)
+    formatOutput('Note is created and added to NoteList', pass)
   };
 
   testThatNoteIsCreated();

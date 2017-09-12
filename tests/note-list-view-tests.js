@@ -12,8 +12,9 @@
     var view = new NoteListView (list)
 
     pass = view.getNotesView() === "<li>" + text + "</li><li>" + text2 + "</li>"
-    formatOutput('testThatNoteViewWorks', pass)
+    formatOutput('NoteListView works', pass)
   };
 
   testThatNoteViewWorks();
+  
 })(this);
