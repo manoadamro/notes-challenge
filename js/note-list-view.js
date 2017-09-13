@@ -9,7 +9,7 @@
 
   // return html for all notes
   NoteListView.prototype.getNotesView = function () {
-    string = ""
+    var string = ""
     for (var i = 0; i < this.noteList.notes.length; i++) {
       text = this.noteList.notes[i].getText()
       if(text.length > 20) text = text.substring(0,20);
