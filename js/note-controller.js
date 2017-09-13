@@ -2,12 +2,20 @@
 // module for 'NoteController'
 (function(exports){
 
+  function setDisplay(doc, id, value) {
+    doc.getElementById(id).style.display = value;
+  };
+
+  function setInnerHtml(doc, id, value) {
+    doc.getElementById(id).innerHTML = value;
+  }
+
   // constructor
   var NoteController = function (noteList = new NoteList (), doc = document, listView = NoteListView, singleView = SingleNoteView) {
     this.noteList = noteList;
+    this.doc = doc
     this.listView = listView;
     this.singleView = singleView;
-    this.doc = doc
     makeUrlChangeShowNote(this);
     listenForSubmit(this)
   };
@@ -16,21 +24,24 @@
   NoteController.prototype.setView = function () {
     window.location.hash = '#notes/home';
     var view = new this.listView(this.noteList);
-    this.doc.getElementById('new-note-form').style.display = "block";
-    var form = this.doc.getElementById('counter').style.display = "block";
-    var form = this.doc.getElementById('note-id').style.display = "none";
-    this.doc.getElementById('app').innerHTML = view.getNotesView();
-    this.doc.getElementById('counter').innerHTML = this.noteList.notes.length + " stored notes"
+
+    setDisplay(this.doc, 'new-note-form', "block");
+    setDisplay(this.doc, 'counter', "block");
+    setDisplay(this.doc, 'note-id', "none");
+
+    setInnerHtml(this.doc, 'app', view.getNotesView())
+    setInnerHtml(this.doc, 'counter', this.noteList.notes.length + " stored notes")
   };
 
   // shows a single note
   NoteController.prototype.showNote = function (noteId) {
     var note = new this.singleView(this.noteList.notes[noteId]);
-    var form = this.doc.getElementById('new-note-form').style.display = "none";
-    var form = this.doc.getElementById('counter').style.display = "none";
-    var form = this.doc.getElementById('note-id').style.display = "block";
-    this.doc.getElementById('app').innerHTML = note.createView();
-    this.doc.getElementById('note-id').innerHTML = "Showing note: #" + noteId;
+    setDisplay(this.doc, 'new-note-form', "none");
+    setDisplay(this.doc, 'counter', "none");
+    setDisplay(this.doc, 'note-id', "block");
+
+    setInnerHtml(this.doc, 'app', note.createView())
+    setInnerHtml(this.doc, 'note-id', "Showing note: #" + noteId)
   };
 
   // event for resetting view to list view
