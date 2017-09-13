@@ -26,10 +26,10 @@
 
     monkeyTest('NoteListView limits to 20 characters')
       .assert(view.getNotesView())
-      .isEqualTo('<a href="#notes/0"><li>abcdefghijklmnopqrst</li></a>')
+      .isEqualTo('<a href="#notes/0"><li>abcdefghijklmnopq...</li></a>')
   }
 
-  monkeyDefine("Note List View") 
+  monkeyDefine("Note List View")
   testThatNoteViewWorks();
   testThatCharacterLimitIs20();
 })(this);

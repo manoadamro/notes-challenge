@@ -10,8 +10,11 @@
 
   // creates a new note and adds it to array
   NoteList.prototype.addNote = function (text) {
-    var newNote = new Note(text)
-    this.notes.push(newNote);
+
+    if (text.replace(/^\s+|\s+$/g, '') != "") {
+      var newNote = new Note(text)
+      this.notes.push(newNote);
+    }
   };
 
   // returns the note array

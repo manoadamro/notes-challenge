@@ -16,19 +16,24 @@
   </head>
 
   <body>
-    <form id="new-note-form" action="#new-note" method="POST">
-      <textarea type="textarea" id="new-note-text" rows="6" cols="50"></textarea>
-      <br />
-      <input type="submit" id="submit" value="Submit" />
-    </form>
+    <center>
+      <form id="new-note-form" action="#new-note" method="POST">
+        <textarea type="textarea" id="new-note-text" rows="6" cols="50"></textarea>
+        <br />
+        <input type="submit" id="submit" value="Submit" />
+      </form>
+    </center>
     <br />
 
-    <div id="app"></div>
+
+    <div id="app" style="width: 200px; margin-left: auto; margin-right: auto;"></div>
     <br />
 
-    <button id="home" onclick="controller.resetView(event, controller);">
-      Home
-    </button>
+    <center>
+      <button id="home" onclick="controller.resetView(event, controller);">
+        Home
+      </button>
+    </center>
 
     <script>
       var controller = new NoteController ()
