@@ -50,7 +50,7 @@
       .isEqualTo("none");
   }
 
-  function testNoteControllerHidesShowsFormByDefault() {
+  function testNoteControllerShowsFormByDefault() {
 
     var doc = new DocumentDouble();
     var controller = createController(doc, ["Favourite drink: seltzer"]);
@@ -61,10 +61,58 @@
       .isNotEqualTo("none");
   }
 
+  function testNoteControllerHidesCounterWhenShowingSingleNote() {
+
+    var doc = new DocumentDouble();
+    var controller = createController(doc, ["Favourite drink: seltzer"]);
+    controller.showNote(0)
+
+    monkeyTest('NoteController hides counter when showing single note')
+      .assert(doc.tags['counter'].style.display)
+      .isEqualTo("none");
+  }
+
+  function testNoteControllerShowsCounterByDefault() {
+
+    var doc = new DocumentDouble();
+    var controller = createController(doc, ["Favourite drink: seltzer"]);
+    controller.setView()
+
+    monkeyTest('NoteController shows counter by default')
+      .assert(doc.tags['counter'].style.display)
+      .isNotEqualTo("none");
+  }
+
+  function testNoteControllerShowsNoteIdWhenShowingSingleNote() {
+
+    var doc = new DocumentDouble();
+    var controller = createController(doc, ["Favourite drink: seltzer"]);
+    controller.showNote(0)
+
+    monkeyTest('NoteController shows note id when showing single note')
+      .assert(doc.tags['note-id'].style.display)
+      .isNotEqualTo("none");
+  }
+
+  function testNoteControllerHidesNoteIdByDefault() {
+
+    var doc = new DocumentDouble();
+    var controller = createController(doc, ["Favourite drink: seltzer"]);
+    controller.setView()
+
+    monkeyTest('NoteController hides note id by default')
+      .assert(doc.tags['note-id'].style.display)
+      .isEqualTo("none");
+  }
+
   monkeyDefine("Note Controller")
   testThatEmptyNoteListIsDisplayedOnLoad();
   testNoteControllerShowsNoteList();
   testNoteControllerShowsSingleNote();
-  testNoteControllerHidesShowsFormByDefault();
-  testNoteControllerHidesFormWhenShowingSingleNote()
+  testNoteControllerShowsFormByDefault();
+  testNoteControllerHidesFormWhenShowingSingleNote();
+  testNoteControllerShowsCounterByDefault();
+  testNoteControllerHidesCounterWhenShowingSingleNote();
+  testNoteControllerShowsNoteIdWhenShowingSingleNote();
+  testNoteControllerHidesNoteIdByDefault();
 })(this);

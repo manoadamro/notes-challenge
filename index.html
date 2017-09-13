@@ -4,6 +4,8 @@
   <head>
     <meta charset="utf-8" />
     <title>Notes</title>
+    <link rel="stylesheet" href="./css/app.css" />
+
     <script src="./js/note-model.js"></script>
     <script src="./js/note-list-model.js"></script>
     <script src="./js/note-list-view.js"></script>
@@ -17,16 +19,25 @@
 
   <body>
     <center>
+      <h1>Monkey Notes</h1>
+    </center>
+
+    <center>
       <form id="new-note-form" action="#new-note" method="POST">
-        <textarea type="textarea" id="new-note-text" rows="6" cols="50"></textarea>
+        <textarea id="new-note-text" rows="6" cols="50"></textarea>
         <br />
         <input type="submit" id="submit" value="Submit" />
       </form>
     </center>
     <br />
 
+    <center>
+      <span id="counter"></span>
+      <span id="note-id"></span>
+    </center>
+    <br />
 
-    <div id="app" style="width: 200px; margin-left: auto; margin-right: auto;"></div>
+    <div id="app"></div>
     <br />
 
     <center>
