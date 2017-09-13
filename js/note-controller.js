@@ -6,6 +6,10 @@
     doc.getElementById(id).style.display = value;
   };
 
+  function setWidth(doc, id, value) {
+    doc.getElementById(id).style.width = value;
+  };
+
   function setInnerHtml(doc, id, value) {
     doc.getElementById(id).innerHTML = value;
   }
@@ -36,6 +40,8 @@
     setDisplay(this.doc, 'note-id', "none");
     setDisplay(this.doc, 'home', "none");
 
+    setWidth(this.doc, 'app', "200px");
+
     setInnerHtml(this.doc, 'app', view.getNotesView())
     setInnerHtml(this.doc, 'counter', numNotesString(this.noteList.notes.length))
   };
@@ -43,11 +49,13 @@
   // shows a single note
   NoteController.prototype.showNote = function (noteId) {
     var note = new this.singleView(this.noteList.notes[noteId]);
-    
+
     setDisplay(this.doc, 'new-note-form', "none");
     setDisplay(this.doc, 'counter', "none");
     setDisplay(this.doc, 'note-id', "block");
     setDisplay(this.doc, 'home', "block");
+
+    setWidth(this.doc, 'app', "500px");
 
     setInnerHtml(this.doc, 'app', note.createView())
     setInnerHtml(this.doc, 'note-id', "Showing note: #" + noteId)
