@@ -7,8 +7,9 @@
     var list = new NoteList();
     list.addNote(text);
 
-    pass = list.getNotes().length === 1
-    formatOutput('Note is created and added to NoteList', pass)
+    monkeyTest('Note is created and added to NoteList')
+      .assert(list.getNotes().length)
+      .isEqualTo(1)
   };
 
   testThatNoteIsCreated();

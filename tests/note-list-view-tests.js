@@ -10,9 +10,10 @@
     list.addNote(text2);
 
     var view = new NoteListView (list)
-
-    pass = view.getNotesView() === '<a href="#notes/0"><li>' + text + '</li></a><a href="#notes/1"><li>' + text2 + '</li></a>'
-    formatOutput('NoteListView shows list', pass)
+    
+    monkeyTest('NoteListView shows list')
+      .assert(view.getNotesView())
+      .isEqualTo('<a href="#notes/0"><li>' + text + '</li></a><a href="#notes/1"><li>' + text2 + '</li></a>')
   };
 
   function testThatCharacterLimitIs20() {
@@ -23,8 +24,9 @@
 
     var view = new NoteListView (list);
 
-    pass = view.getNotesView() === '<a href="#notes/0"><li>abcdefghijklmnopqrst</li></a>'
-    formatOutput('NoteListView limits to 20 characters', pass)
+    monkeyTest('NoteListView limits to 20 characters')
+      .assert(view.getNotesView())
+      .isEqualTo('<a href="#notes/0"><li>abcdefghijklmnopqrst</li></a>')
   }
 
   testThatNoteViewWorks();

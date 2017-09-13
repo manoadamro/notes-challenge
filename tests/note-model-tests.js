@@ -6,19 +6,21 @@
   var note2 = new Note(text);
 
   function testThatItReturnsTheNoteMessage() {
-
-    pass = note.getText() === text
-    formatOutput('Note returns message', pass)
+    monkeyTest('Note returns message')
+      .assert(note.getText())
+      .isEqualTo(text)
   };
 
   function testThatFirstNoteIdIs0 () {
-    pass = note.id === 0
-    formatOutput('First note id is 0', pass)
+    monkeyTest('First note id is 0')
+      .assert(note.id)
+      .isEqualTo(0)
   }
 
   function testThatNoteIdIncrements () {
-    pass = note1.id === 1 && note2.id === 2
-    formatOutput('Note id increments', pass)
+    monkeyTest('Note id increments')
+      .assert(note1.id)
+      .isEqualTo(1)
   }
 
   testThatItReturnsTheNoteMessage();
