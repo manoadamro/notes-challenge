@@ -39,7 +39,32 @@
       .isEqualTo("Favourite drink: bleach");
   }
 
+  function testNoteControllerHidesFormWhenShowingSingleNote() {
+
+    var doc = new DocumentDouble();
+    var controller = createController(doc, ["Favourite drink: seltzer"]);
+    controller.showNote(0)
+
+    monkeyTest('NoteController hides form when showing single note')
+      .assert(doc.tags['new-note-form'].style.display)
+      .isEqualTo("none");
+  }
+
+  function testNoteControllerHidesShowsFormByDefault() {
+
+    var doc = new DocumentDouble();
+    var controller = createController(doc, ["Favourite drink: seltzer"]);
+    controller.setView()
+
+    monkeyTest('NoteController shows form by default')
+      .assert(doc.tags['new-note-form'].style.display)
+      .isNotEqualTo("none");
+  }
+
+  monkeyDefine("Note Controller")
   testThatEmptyNoteListIsDisplayedOnLoad();
   testNoteControllerShowsNoteList();
   testNoteControllerShowsSingleNote();
+  testNoteControllerHidesShowsFormByDefault();
+  testNoteControllerHidesFormWhenShowingSingleNote()
 })(this);

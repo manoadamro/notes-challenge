@@ -1,7 +1,7 @@
 
 (function(exports){
   var formatOutput = function (title, pass, notes) {
-    string = '<div class="output">' + title + '</div>: '
+    var string = '<div class="output">' + title + '</div>: '
     if (pass) {
       color = 'green';
       output = 'PASS';
@@ -48,6 +48,11 @@
     }
   }
 
+  var monkeyDefine = function(title) {
+    document.write("<br /><span style='color: blue; font-weight: bold;'>" + title + "</span><br />");
+  }
+
+  exports.monkeyDefine = monkeyDefine;
   exports.monkeyTest = monkeyTest;
 
 })(this);

@@ -10,5 +10,6 @@
       .isEqualTo('<div>' + text + '</div>')
   };
 
+  monkeyDefine("Single Note View")
   testThatSingleNoteViewReturnsHTML();
 })(this);

@@ -23,6 +23,7 @@
       .isEqualTo(1)
   }
 
+  monkeyDefine("Note Model")
   testThatItReturnsTheNoteMessage();
   testThatFirstNoteIdIs0();
   testThatNoteIdIncrements();

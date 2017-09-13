@@ -10,8 +10,8 @@
     list.addNote(text2);
 
     var view = new NoteListView (list)
-    
-    monkeyTest('NoteListView shows list')
+
+    monkeyTest('NoteListView returns correct HTML')
       .assert(view.getNotesView())
       .isEqualTo('<a href="#notes/0"><li>' + text + '</li></a><a href="#notes/1"><li>' + text2 + '</li></a>')
   };
@@ -29,6 +29,7 @@
       .isEqualTo('<a href="#notes/0"><li>abcdefghijklmnopqrst</li></a>')
   }
 
+  monkeyDefine("Note List View") 
   testThatNoteViewWorks();
   testThatCharacterLimitIs20();
 })(this);

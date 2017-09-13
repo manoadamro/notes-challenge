@@ -12,5 +12,6 @@
       .isEqualTo(1)
   };
 
+  monkeyDefine("Note List Model")
   testThatNoteIsCreated();
 })(this);
