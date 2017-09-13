@@ -105,6 +105,28 @@
       .isEqualTo("none");
   }
 
+  function testNoteControllerShowsHomeButtonWhenShowingSingleNote() {
+
+    var doc = new DocumentDouble();
+    var controller = createController(doc, ["Favourite drink: seltzer"]);
+    controller.showNote(0)
+
+    monkeyTest('NoteController shows home button when showing single note')
+      .assert(doc.tags['home'].style.display)
+      .isNotEqualTo("none");
+  }
+
+  function testNoteControllerHidesHomeButtonByDefault() {
+
+    var doc = new DocumentDouble();
+    var controller = createController(doc, ["Favourite drink: seltzer"]);
+    controller.setView()
+
+    monkeyTest('NoteController hides home button by default')
+      .assert(doc.tags['home'].style.display)
+      .isEqualTo("none");
+  }
+
   monkeyDefine("Note Controller")
   testThatEmptyNoteListIsDisplayedOnLoad();
   testNoteControllerShowsNoteList();
@@ -115,4 +137,6 @@
   testNoteControllerHidesCounterWhenShowingSingleNote();
   testNoteControllerShowsNoteIdWhenShowingSingleNote();
   testNoteControllerHidesNoteIdByDefault();
+  testNoteControllerShowsHomeButtonWhenShowingSingleNote();
+  testNoteControllerHidesHomeButtonByDefault();
 })(this);

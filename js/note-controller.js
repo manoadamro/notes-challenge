@@ -10,6 +10,12 @@
     doc.getElementById(id).innerHTML = value;
   }
 
+  function numNotesString (length) {
+    var string = length + " stored note"
+    if (length !== 1) { string += "s" }
+    return string
+  }
+
   // constructor
   var NoteController = function (noteList = new NoteList (), doc = document, listView = NoteListView, singleView = SingleNoteView) {
     this.noteList = noteList;
@@ -28,17 +34,20 @@
     setDisplay(this.doc, 'new-note-form', "block");
     setDisplay(this.doc, 'counter', "block");
     setDisplay(this.doc, 'note-id', "none");
+    setDisplay(this.doc, 'home', "none");
 
     setInnerHtml(this.doc, 'app', view.getNotesView())
-    setInnerHtml(this.doc, 'counter', this.noteList.notes.length + " stored notes")
+    setInnerHtml(this.doc, 'counter', numNotesString(this.noteList.notes.length))
   };
 
   // shows a single note
   NoteController.prototype.showNote = function (noteId) {
     var note = new this.singleView(this.noteList.notes[noteId]);
+    
     setDisplay(this.doc, 'new-note-form', "none");
     setDisplay(this.doc, 'counter', "none");
     setDisplay(this.doc, 'note-id', "block");
+    setDisplay(this.doc, 'home', "block");
 
     setInnerHtml(this.doc, 'app', note.createView())
     setInnerHtml(this.doc, 'note-id', "Showing note: #" + noteId)
