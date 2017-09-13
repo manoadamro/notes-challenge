@@ -18,38 +18,43 @@
   </head>
 
   <body>
-    <center>
-      <h1>Monkey Notes</h1>
-    </center>
+    <div id="wrapper">
 
-    <center>
-      <form id="new-note-form" action="#new-note" method="POST">
-        <textarea id="new-note-text" rows="6" cols="50"></textarea>
-        <br />
-        <input type="submit" id="submit" value="Submit" />
-      </form>
-    </center>
-    <br />
+      <center>
+        <h1>Monkey Notes</h1>
+      </center>
 
-    <center>
-      <span id="counter"></span>
-      <span id="note-id"></span>
-    </center>
-    <br />
+      <center>
+        <form id="new-note-form" action="#new-note" method="POST">
+          <textarea id="new-note-text" rows="6" cols="50"></textarea>
+          <br />
+          <input type="submit" id="submit" value="Submit" />
+        </form>
+      </center>
+      <br />
 
-    <div id="app"></div>
-    <br />
+      <center>
+        <span id="counter"></span>
+        <span id="note-id"></span>
+      </center>
+      <br />
 
-    <center>
-      <button id="home" onclick="controller.resetView(event, controller);">
-        Home
-      </button>
-    </center>
+      <div id="app"></div>
+      <br />
 
-    <script>
-      var controller = new NoteController ()
-      controller.setView();
-    </script>
+      <center>
+        <button id="home" onclick="controller.resetView(event, controller);">
+          Home
+        </button>
+      </center>
+      <br />
+
+      <script>
+        var controller = new NoteController ()
+        controller.setView();
+      </script>
+
+    </div>
 
   </body>
 </html>

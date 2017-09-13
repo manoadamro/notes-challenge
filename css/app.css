@@ -1,5 +1,13 @@
 
 
+#wrapper {
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 1px;
+  min-height: 500px;
+}
+
 #app {
   width: 200px;
   margin-left: auto;
