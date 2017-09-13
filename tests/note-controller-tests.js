@@ -1,13 +1,6 @@
 
 (function(exports) {
 
-  function createController(doc, newNotes) {
-    var list = new NoteListDouble();
-    for (var i = 0; i < newNotes.length; i++) {
-      list.addNote(newNotes[i]);
-    }
-    return new NoteController(list, doc, ListViewDouble, SingleViewDouble);
-  }
 
   function testThatEmptyNoteListIsDisplayedOnLoad() {
 
@@ -15,8 +8,9 @@
     var controller = createController(doc, [])
     controller.setView()
 
-    var pass = doc.tags['app'].innerHTML === '0 items'
-    formatOutput('NoteController shows empty note list on load', pass)
+    monkeyTest("NoteController shows empty note list on load")
+      .assert(doc.tags['app'].innerHTML)
+      .isEqualTo('0 items');
   }
 
   function testNoteControllerShowsNoteList() {
@@ -25,8 +19,9 @@
     var controller = createController(doc, ["Favourite drink: seltzer"]);
     controller.setView()
 
-    var pass = doc.tags['app'].innerHTML === '1 items'
-    formatOutput('NoteController shows note list', pass)
+    monkeyTest("NoteController shows note list")
+      .assert(doc.tags['app'].innerHTML)
+      .isEqualTo('1 items');
   };
 
   function testNoteControllerShowsSingleNote() {
@@ -39,8 +34,9 @@
     ]);
     controller.showNote(1)
 
-    var pass = doc.tags['app'].innerHTML === "Favourite drink: bleach"
-    formatOutput('NoteController shows single note', pass)
+    monkeyTest('NoteController shows single note')
+      .assert(doc.tags['app'].innerHTML)
+      .isEqualTo("Favourite drink: bleach");
   }
 
   testThatEmptyNoteListIsDisplayedOnLoad();
