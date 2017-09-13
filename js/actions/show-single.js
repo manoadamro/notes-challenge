@@ -10,7 +10,7 @@
 
     function showNoteForCurrentPage (controller) {
       var noteId = window.location.hash.split("/")[1];
-      controller.showNote(noteId);
+      if (!(isNaN(noteId))) { controller.showNote(noteId); }
     };
 
     exports.makeUrlChangeShowNote = makeUrlChangeShowNote;

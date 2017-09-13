@@ -11,8 +11,9 @@
 
   // allows innerHTML of 'app' element to be changed
   NoteController.prototype.setView = function (docObj=document) {
-    var view = new NoteListView(this.noteList).getNotesView();
-    docObj.getElementById('app').innerHTML = view
+    window.location.hash = '#notes/home';
+    var view = new NoteListView(this.noteList);
+    docObj.getElementById('app').innerHTML = view.getNotesView();
   };
 
   // shows a single note
@@ -22,7 +23,7 @@
   };
 
   // event for resetting view to list view
-  NoteController.prototype.resetView = function(clickEvent) {
+  NoteController.prototype.resetView = function(clickEvent, controller) {
     clickEvent.preventDefault();
     controller.setView();
   };

@@ -27,11 +27,6 @@
     formatOutput('NoteController shows single note', pass)
   }
 
-  // var doc = new DocumentDouble();
-  // console.log(doc);
-  // doc.getElementById('test').innerHTML = "hello";
-  // console.log(doc.tags['test'].innerHTML);
-
   testNoteControllerShowsNoteList();
   testNoteControllerShowsSingleNote();
 })(this);
