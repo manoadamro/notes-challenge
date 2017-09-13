@@ -20,7 +20,7 @@
   };
 
   var expectationNote = function(a, b) {
-    return "<span style='color: red'> expected \"" + a + "\"<br /> to equal \"" + b + "\"</span><br />"
+    return "<span style='color: red'>- expected \"" + a + "\"<br />- to equal \"" + b + "\"</span>"
   };
 
   var monkeyTest = function(title) {
@@ -48,7 +48,6 @@
     }
   }
 
-  exports.formatOutput = formatOutput;
   exports.monkeyTest = monkeyTest;
 
 })(this);
