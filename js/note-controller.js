@@ -16,12 +16,14 @@
   NoteController.prototype.setView = function () {
     window.location.hash = '#notes/home';
     var view = new this.listView(this.noteList);
+    this.doc.getElementById('new-note-form').style.display = "block";
     this.doc.getElementById('app').innerHTML = view.getNotesView();
   };
 
   // shows a single note
   NoteController.prototype.showNote = function (noteId) {
     var note = new this.singleView(this.noteList.notes[noteId]);
+    var form = this.doc.getElementById('new-note-form').style.display = "none";
     this.doc.getElementById('app').innerHTML = note.createView();
   };
 

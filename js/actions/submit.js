@@ -8,7 +8,9 @@
   }
 
   function submitNewNote(controller) {
-    var content = document.getElementById('new-note-text').value;
+    var element = document.getElementById('new-note-text');
+    var content = element.value;
+    element.value = "";
     controller.noteList.addNote(content);
     controller.setView();
   }

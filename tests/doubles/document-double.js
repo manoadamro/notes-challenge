@@ -3,6 +3,9 @@
 
   var Tag = function() {
     this.innerHTML = "";
+    this.style = {
+      display: "block"
+    };
   };
 
   var DocumentDouble = function() {
